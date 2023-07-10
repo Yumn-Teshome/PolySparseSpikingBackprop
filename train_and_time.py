@@ -578,7 +578,7 @@ def compute_classification_accuracy(x_data, y_data, params, prs):
         if len(accs) % 25 == 0 and len(accs) > 0:
             print("Progress:{:d}/{:d}".format(len(accs), len(x_data) // prs['batch_size']))
         output, _ = run_snn(x_local.to_dense(), params, prs)
-        if prs['dataset_id']==SHD:
+        if prs['dataset_id']=='SHD':
             m = torch.sum(output, dim=1)
         else:
             m, _ = torch.max(output, 1)  # max over time        
